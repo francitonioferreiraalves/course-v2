@@ -22,7 +22,9 @@ spring:
     properties: 
       hibernate:
         show_sql: true
-
+        
+  rabbitmq:
+     addresses: amqps://nmgojkfr:Lf_lZQLPVo7Q2oK9UpEcRU3tM_oSFLj9@gull.rmq.cloudamqp.com/nmgojkfr
 
 logging:
   level:
@@ -35,7 +37,13 @@ ead:
   api:
     url:
       authuser: 'http://ead-authuser-service/ead-authuser/'
-      
+  broker:
+    exchange:
+      userEventExchange: ead.userevent
+    queue:
+      userEventQueue:
+        name: ead.userevent.ms.course
+   
 eureka:
   client:
     serviceUrl:
