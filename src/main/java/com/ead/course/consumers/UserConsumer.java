@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import com.ead.course.dtos.UserEventDto;
 import com.ead.course.enums.ActionType;
 import com.ead.course.services.UserService;
+
 @Component
 public class UserConsumer {
 
@@ -24,7 +25,11 @@ public class UserConsumer {
 
 		switch (ActionType.valueOf(userEventDto.getActionType())) {
 		case CREATE:
+		case UPDATE:
 			userService.save(userModel);
+			break;
+		case DELETE:
+			userService.delete(userEventDto.getUserId());
 			break;
 		}
 	}
