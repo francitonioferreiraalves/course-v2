@@ -30,6 +30,7 @@ public class SpecificationTemplate {
 	public interface UserSpec extends Specification<UserModel> {
 	}
 
+	@Spec(path = "title", spec = Like.class)
 	public interface ModuleSpec extends Specification<ModuleModel> {
 	}
 
